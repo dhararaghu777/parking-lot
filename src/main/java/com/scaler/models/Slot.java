@@ -1,12 +1,12 @@
 package com.scaler.models;
 
-public abstract class Slot {
+public class Slot {
     private int slotId;
     private VehicleType vehicleType;
-    private Floor floor;
+    private int floor;
     private  SlotType slotType;
 
-    public Slot(int slotId, VehicleType vehicleType, Floor floor) {
+    public Slot(int slotId, VehicleType vehicleType, int floor) {
         this.slotId = slotId;
         this.vehicleType = vehicleType;
         this.floor = floor;
@@ -28,11 +28,11 @@ public abstract class Slot {
         this.vehicleType = vehicleType;
     }
 
-    public Floor getFloor() {
+    public int getFloor() {
         return floor;
     }
 
-    public void setFloor(Floor floor) {
+    public void setFloor(int floor) {
         this.floor = floor;
     }
 }

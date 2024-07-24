@@ -1,6 +1,7 @@
 package com.scaler.models;
 
 import java.util.Date;
+import java.util.UUID;
 
 public class Ticket {
     private String ticketId;
@@ -8,13 +9,15 @@ public class Ticket {
     private Operator operator;
     private User user;
     private Slot slot;
+    private Vehicle vehicle;
 
    private Ticket(Builder builder) {
-        this.ticketId = builder.ticketId;
+        this.ticketId= UUID.randomUUID().toString();
         this.entryDate = builder.entryDate;
         this.operator = builder.operator;
         this.user = builder.user;
         this.slot = builder.slot;
+        this.vehicle= builder.vehicle;
    }
 
     public String getTicketId() {
@@ -36,20 +39,18 @@ public class Ticket {
     public Slot getSlot() {
         return slot;
     }
+    public Vehicle getVehicle() {return vehicle}
     public static Builder createBuilder() {
        return new Builder();
     }
     public static class Builder {
-        private String ticketId;
+
         private Date entryDate;
         private Operator operator;
         private User user;
         private Slot slot;
+        private Vehicle vehicle;
 
-        public Builder ticketId(String ticketId) {
-            this.ticketId= ticketId;
-            return this;
-        }
         public Builder entryDate(Date entryDate) {
             this.entryDate = entryDate;
             return this;
@@ -64,6 +65,10 @@ public class Ticket {
         }
         public Builder slot(Slot slot){
             this.slot = slot;
+            return this;
+        }
+        public Builder vehicle(Vehicle vehicle){
+            this.vehicle = vehicle;
             return this;
         }
         public Ticket build() {

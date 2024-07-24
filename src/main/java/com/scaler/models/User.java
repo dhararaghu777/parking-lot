@@ -1,24 +1,22 @@
 package com.scaler.models;
 
+import java.util.UUID;
+
 public abstract class User {
-    private int id;
+    private String id;
     private String name;
     private String mobile;
     private UserType userType;
 
-    public User(int id, String name, String mobile, UserType userType){
-        this.id = id;
+    public User(String name, String mobile, UserType userType){
+        this.id = UUID.randomUUID().toString();
         this.name = name;
         this.mobile = mobile;
         this.userType = userType;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {

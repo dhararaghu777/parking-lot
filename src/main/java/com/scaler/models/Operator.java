@@ -3,11 +3,11 @@ package com.scaler.models;
 public class Operator {
     private String operatorId;
     private String operatorName;
-    private Gate gate;
-    public Operator(String operatorId, String operatorName, Gate gate) {
+
+    public Operator(String operatorId, String operatorName) {
         this.operatorId = operatorId;
         this.operatorName = operatorName;
-        this.gate = gate;
+
     }
 
     public String getOperatorId() {
@@ -26,11 +26,4 @@ public class Operator {
         this.operatorName = operatorName;
     }
 
-    public Gate getGate() {
-        return gate;
-    }
-
-    public void setGate(Gate gate) {
-        this.gate = gate;
-    }
 }

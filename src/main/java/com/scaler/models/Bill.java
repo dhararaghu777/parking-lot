@@ -1,16 +1,17 @@
 package com.scaler.models;
 
 import java.util.Date;
+import java.util.UUID;
 
 public class Bill {
     private String billId;
     private Date exitDate;
     private Ticket  ticket;
     private Operator operator;
-    private Payment payment;
+    private final IPayment payment;
 
     private Bill(Builder builder) {
-        this.billId = builder.billId;
+        this.billId = UUID.randomUUID().toString();
         this.exitDate = builder.exitDate;
         this.ticket = builder.ticket;
         this.operator = builder.operator;
@@ -33,7 +34,7 @@ public class Bill {
         return operator;
     }
 
-    public Payment getPayment() {
+    public IPayment getPayment() {
         return payment;
     }
     public static Builder createBuilder(){
@@ -44,12 +45,9 @@ public class Bill {
         private Date exitDate;
         private Ticket  ticket;
         private Operator operator;
-        private Payment payment;
+        private IPayment payment;
         public Builder() {}
-        public Builder billId(String billId) {
-            this.billId = billId;
-            return null;
-        }
+
         public Builder exitDate(Date exitDate) {
             this.exitDate = exitDate;
             return this;
@@ -62,7 +60,8 @@ public class Bill {
             this.operator = operator;
             return this;
         }
-        public Builder payment(Payment payment){
+
+        public Builder payment(IPayment payment) {
             this.payment= payment;
             return this;
         }

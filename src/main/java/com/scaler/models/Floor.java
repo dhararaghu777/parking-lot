@@ -1,16 +1,16 @@
 package com.scaler.models;
 
 import java.util.List;
+import java.util.Map;
 
 public class Floor {
     private int floorNo;
     private String floorName;
-    private List<Slot> slots;
+    private Map<Integer, Slot> slotMap;
 
-    public Floor(int floorNo, String floorName, List<Slot> slots) {
+    public Floor(int floorNo, String floorName) {
         this.floorNo = floorNo;
         this.floorName = floorName;
-        this.slots = slots;
     }
 
     public String getFloorName() {
@@ -29,11 +29,12 @@ public class Floor {
         this.floorNo = floorNo;
     }
 
-    public List<Slot> getSlots() {
-        return slots;
+    public Slot getSlot(int slotId) {
+        if(!slotMap.containsKey(slotId)) throw new RuntimeException("Slot not found");
+        return slotMap.get(slotId);
     }
 
-    public void setSlots(List<Slot> slots) {
-        this.slots = slots;
-    }
+   public void addSlot(Slot slot) {
+        slotMap.put(slot.getSlotId(), slot);
+   }
 }

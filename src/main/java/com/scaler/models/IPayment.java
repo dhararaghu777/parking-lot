@@ -1,6 +1,7 @@
 package com.scaler.models;
 
-public interface Payment {
-    boolean makePayment(int amount);
+public interface IPayment {
+    boolean makePayment(double amount);
+
     String getPaymentInfo(String paymentId);
 }
